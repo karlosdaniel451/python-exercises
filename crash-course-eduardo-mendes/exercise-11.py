@@ -12,4 +12,3 @@ for letter in string:
         print('Karlos')
     else:
         print(letter)
-
