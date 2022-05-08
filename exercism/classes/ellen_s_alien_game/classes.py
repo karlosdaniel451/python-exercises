@@ -31,15 +31,37 @@ class Alien:
         Alien.total_aliens_created += 1
 
     def hit(self):
+        """
+        Decrement alien health by one point.
+        """
         self.health -= 1
 
-    def is_alive(self):
+    def is_alive(self) -> bool:
+        """
+        Rerturn a boolean for if alien is alive (if health is > 0).
+        """
         return self.health > 0
 
     def teleport(self, new_x_coordinate: int, new_y_coordinate: int):
+        """
+        Movie alien to new coordinates.
+        """
         self.x_coordinate = new_x_coordinate
         self.y_coordinate = new_y_coordinate
 
-    def collision_detection(self):
+    def collision_detection(self, other_alien):
+        """
+        Implementation TBD.
+        """
         pass
+
+
+def new_aliens_collection(positions_list: list[tuple]) -> list[Alien]:
+    aliens: list[Alien] = []
+
+    for positions in positions_list:
+        new_alien = Alien(x_coordinate=positions[0], y_coordinate=positions[1])
+        aliens.append(new_alien)
+
+    return aliens
 
